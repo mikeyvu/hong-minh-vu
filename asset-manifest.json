@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/Minh-Vu-Mike--portfolio/static/css/main.50acff8f.css",
+    "main.css": "/Minh-Vu-Mike--portfolio/static/css/main.92b8120d.css",
     "main.js": "/Minh-Vu-Mike--portfolio/static/js/main.38fc6157.js",
     "static/js/453.b05d8aa5.chunk.js": "/Minh-Vu-Mike--portfolio/static/js/453.b05d8aa5.chunk.js",
     "static/media/mock10.png": "/Minh-Vu-Mike--portfolio/static/media/mock10.2d05b02ba569a430a255.png",
@@ -8,12 +8,12 @@
     "static/media/Hong Minh Vu - avatar.jpg": "/Minh-Vu-Mike--portfolio/static/media/Hong Minh Vu - avatar.a0d0ef44192605b7a74d.jpg",
     "static/media/bg-dark.png": "/Minh-Vu-Mike--portfolio/static/media/bg-dark.f420c6b8458af72de935.png",
     "index.html": "/Minh-Vu-Mike--portfolio/index.html",
-    "main.50acff8f.css.map": "/Minh-Vu-Mike--portfolio/static/css/main.50acff8f.css.map",
+    "main.92b8120d.css.map": "/Minh-Vu-Mike--portfolio/static/css/main.92b8120d.css.map",
     "main.38fc6157.js.map": "/Minh-Vu-Mike--portfolio/static/js/main.38fc6157.js.map",
     "453.b05d8aa5.chunk.js.map": "/Minh-Vu-Mike--portfolio/static/js/453.b05d8aa5.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.50acff8f.css",
+    "static/css/main.92b8120d.css",
     "static/js/main.38fc6157.js"
   ]
 }
