@@ -45,7 +45,7 @@ const labelsThird = [
 
 function Expertise() {
     return (
-    <div className="container" id="expertise">
+    <div className="container expertise-section" id="expertise">
         <div className="skills-container">
             <h1>Expertise</h1>
             <div className="skills-grid">

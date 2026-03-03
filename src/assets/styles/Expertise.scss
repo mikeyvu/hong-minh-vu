@@ -1,3 +1,11 @@
+.expertise-section {
+    margin-top: 20px;
+}
+
+.expertise-section .skills-container {
+    padding-top: 2%;
+}
+
 .skills-container {
     padding: 5% 10%;
     display: flex;
@@ -68,6 +76,14 @@
 
 @media screen {
     @media (max-width: 768px) {
+        .expertise-section {
+            margin-top: 16px;
+        }
+
+        .expertise-section .skills-container {
+            padding-top: 0;
+        }
+
         .skills-container {
             display: block;
             padding-left: 5%;
