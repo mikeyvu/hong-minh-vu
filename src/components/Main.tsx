@@ -3,7 +3,7 @@ import '../assets/styles/Main.scss';
 import avatar from '../assets/images/Hong Minh Vu - avatar.jpg';
 
 function Main() {
-  const cvFileName = 'Minh Vu (Mike) - CV.pdf';
+  const cvFileName = 'Minh Vu(Mike) - CV.pdf';
   const cvHref = `${process.env.PUBLIC_URL}/cv/${encodeURIComponent(cvFileName)}`;
 
   return (
