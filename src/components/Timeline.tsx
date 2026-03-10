@@ -36,15 +36,12 @@ const careerEntries: CareerEntry[] = [
     previewImage: 'https://img.youtube.com/vi/Wyt5HsjooLg/hqdefault.jpg',
     mediaType: 'embed',
     mediaSrc: 'https://www.youtube.com/embed/Wyt5HsjooLg?si=C-Yvvj0YtYaNL9Z3',
-    demoUrl: 'https://www.youtube.com/watch?v=Wyt5HsjooLg',
     description: [
       'Built and deployed a full-stack online ordering and restaurant management system for a family business in Vietnam.',
       'Drove a 40% rise in revenue and cut manual processes by 30% through automation and real-time system integration.',
       'Enabled QR code table ordering with real-time order flow from customers to the kitchen.',
       'Delivered an admin portal to manage roles, categories, menu items, orders, and revenue reporting.',
       'Applied MVC design pattern and a normalized MySQL schema for clean separation of concerns and reliable data integrity.',
-      'Implemented transaction-safe order creation using a two-phase (order → items → total) workflow.',
-      'Added real-time updates on the restaurant dashboard using Server-Sent Events (SSE).',
       'Built using Java and MySQL on the backend, with HTML, CSS, JSP, and JavaScript for the frontend interface.',
       'Maintained clean code, documentation, and version control using Git.'
     ]
@@ -58,7 +55,6 @@ const careerEntries: CareerEntry[] = [
     previewImage: 'https://img.youtube.com/vi/g3BSYlM0fOM/hqdefault.jpg',
     mediaType: 'embed',
     mediaSrc: 'https://www.youtube.com/embed/g3BSYlM0fOM?si=i9biTTluKwjGW6TV',
-    demoUrl: 'https://www.youtube.com/watch?v=g3BSYlM0fOM',
     description: [
       'Researched and fine-tuned the PaddleOCR model to automate Patient Identity Verification, reducing manual data entry time by 80% for 10,000+ records and enabling more patients to receive treatment each day.',
       'Designed and generated synthetic datasets using GAN model to cover the lack of real data.',
