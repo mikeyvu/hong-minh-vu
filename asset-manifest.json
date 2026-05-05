@@ -1,19 +1,17 @@
 {
   "files": {
-    "main.css": "/hong-minh-vu/static/css/main.efc4c2f7.css",
-    "main.js": "/hong-minh-vu/static/js/main.755c2381.js",
+    "main.css": "/hong-minh-vu/static/css/main.33a45449.css",
+    "main.js": "/hong-minh-vu/static/js/main.e003853b.js",
     "static/js/453.b05d8aa5.chunk.js": "/hong-minh-vu/static/js/453.b05d8aa5.chunk.js",
-    "static/media/bg-light.png": "/hong-minh-vu/static/media/bg-light.bac0efb485244a522981.png",
-    "static/media/Hong Minh Vu - avatar.jpg": "/hong-minh-vu/static/media/Hong Minh Vu - avatar.a0d0ef44192605b7a74d.jpg",
-    "static/media/bg-dark.png": "/hong-minh-vu/static/media/bg-dark.f420c6b8458af72de935.png",
+    "static/media/Mike Vu - avatar.jpg": "/hong-minh-vu/static/media/Mike Vu - avatar.a0d0ef44192605b7a74d.jpg",
     "static/media/todo-bot-mock.png": "/hong-minh-vu/static/media/todo-bot-mock.620eaf521b863ca80b69.png",
     "index.html": "/hong-minh-vu/index.html",
-    "main.efc4c2f7.css.map": "/hong-minh-vu/static/css/main.efc4c2f7.css.map",
-    "main.755c2381.js.map": "/hong-minh-vu/static/js/main.755c2381.js.map",
+    "main.33a45449.css.map": "/hong-minh-vu/static/css/main.33a45449.css.map",
+    "main.e003853b.js.map": "/hong-minh-vu/static/js/main.e003853b.js.map",
     "453.b05d8aa5.chunk.js.map": "/hong-minh-vu/static/js/453.b05d8aa5.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.efc4c2f7.css",
-    "static/js/main.755c2381.js"
+    "static/css/main.33a45449.css",
+    "static/js/main.e003853b.js"
   ]
 }
