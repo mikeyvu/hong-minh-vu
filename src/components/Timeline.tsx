@@ -9,7 +9,6 @@ import CloseIcon from '@mui/icons-material/Close';
 import { VerticalTimeline, VerticalTimelineElement }  from 'react-vertical-timeline-component';
 import 'react-vertical-timeline-component/style.min.css';
 import '../assets/styles/Timeline.scss'
-import todoBotMock from '../assets/images/todo-bot-mock.png';
 
 type MediaType = 'image' | 'video' | 'embed';
 type EntrySection = 'personal-project' | 'professional-experience';
@@ -29,23 +28,6 @@ interface CareerEntry {
 
 const careerEntries: CareerEntry[] = [
   {
-    id: 'todo-bot-mern',
-    section: 'personal-project',
-    date: 'Apr 2026 - Present',
-    title: 'Full Stack Software Engineer',
-    company: 'Todo Bot (Full-Stack MERN) | Wollongong, NSW',
-    previewImage: todoBotMock,
-    mediaType: 'image',
-    mediaSrc: todoBotMock,
-    demoUrl: 'https://todo-bot-ut0r.onrender.com/',
-    description: [
-      'Strategically engineered to bridge the gap between enterprise Java ecosystems and the modern MERN stack, mastering reactive state management and non-relational data modeling.',
-      'Accelerated frontend development and consistency by implementing a reusable, component-driven UI using shadcn/ui and Tailwind CSS for clean class composition.',
-      'Optimized end-to-end data persistence through a flexible MongoDB/Mongoose schema, ensuring high-throughput tracking of active and completed task states.',
-      'Strategizing AI-driven task optimization by designing a Retrieval-Augmented Generation (RAG) roadmap to provide users with time-blocked schedules based on historical completion context.'
-    ]
-  },
-  {
     id: 'online-ordering-system',
     section: 'personal-project',
     date: 'Jan. 2025 - May 2025',
@@ -62,25 +44,6 @@ const careerEntries: CareerEntry[] = [
       'Applied MVC design pattern and a normalized MySQL schema for clean separation of concerns and reliable data integrity.',
       'Built using Java and MySQL on the backend, with HTML, CSS, JSP, and JavaScript for the frontend interface.',
       'Maintained clean code, documentation, and version control using Git.'
-    ]
-  },
-  {
-    id: 'sample-assist',
-    section: 'professional-experience',
-    date: 'September 2024 - June 2025',
-    title: 'Software Engineering Intern',
-    company: 'Sample Assist | Wollongong, NSW',
-    previewImage: 'https://img.youtube.com/vi/g3BSYlM0fOM/hqdefault.jpg',
-    mediaType: 'embed',
-    mediaSrc: 'https://www.youtube.com/embed/g3BSYlM0fOM?si=i9biTTluKwjGW6TV',
-    description: [
-      'Researched and fine-tuned the PaddleOCR model to automate Patient Identity Verification, reducing manual data entry time by 80% for 10,000+ records and enabling more patients to receive treatment each day.',
-      'Designed and generated synthetic datasets using GAN model to cover the lack of real data.',
-      'Developed APIs for seamless integration of AI models into the company’s applications.',
-      'Engaged with stakeholders to define project goals and align team direction.',
-      'Collaborated in a 5-member Agile (Sprint) team to work and deliver the final product.',
-      'Conducted comprehensive data analytics and assessed AI model effectiveness through accuracy, precision, recall, and F1-score.',
-      'Tech Stack: Python, FastAPI, OpenCV, Google ML Kit, GitHub, PostgreSQL.'
     ]
   }
 ];

@@ -40,7 +40,7 @@ const contactItems: ContactItem[] = [
   {
     icon: <LinkedInIcon />,
     platform: 'LinkedIn',
-    handle: 'Hong Minh Vu',
+    handle: 'Mike Vu',
     href: 'https://www.linkedin.com/in/hong-minh-vu/',
     external: true,
   },

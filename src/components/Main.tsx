@@ -1,6 +1,6 @@
 import React from "react";
 import '../assets/styles/Main.scss';
-import avatar from '../assets/images/Hong Minh Vu - avatar.jpg';
+import avatar from '../assets/images/Mike Vu - avatar.jpg';
 
 function Main() {
   const cvFileName = 'Minh Vu(Mike) - CV.pdf';
@@ -10,11 +10,11 @@ function Main() {
     <div className="container">
       <div className="about-section">
         <div className="image-wrapper">
-          <img src={avatar} alt="Hong Minh Vu avatar" />
+          <img src={avatar} alt="Mike Vu avatar" />
         </div>
         <div className="content">
-          <h1>Hong Minh Vu</h1>
-          <p>Full Stack Software Engineer - AI Engineer and Big Data Enthusiast</p>
+          <h1>Mike Vu</h1>
+          <p>Full Stack Software Engineer Graduate - AI and Big Data Engineer</p>
           <div className="cta-actions">
             <a
               className="cv-download-link"
