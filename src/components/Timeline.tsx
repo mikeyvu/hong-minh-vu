@@ -9,6 +9,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import { VerticalTimeline, VerticalTimelineElement }  from 'react-vertical-timeline-component';
 import 'react-vertical-timeline-component/style.min.css';
 import '../assets/styles/Timeline.scss'
+import todoBotMock from '../assets/images/todo-bot-mock.png';
 
 type MediaType = 'image' | 'video' | 'embed';
 type EntrySection = 'personal-project' | 'professional-experience';
@@ -28,10 +29,46 @@ interface CareerEntry {
 
 const careerEntries: CareerEntry[] = [
   {
+    id: 'todo-bot-mern',
+    section: 'personal-project',
+    date: 'Apr 2026 - Present',
+    title: 'Todo Bot (Full-Stack MERN)',
+    company: 'Full Stack Software Engineer | Wollongong, NSW',
+    previewImage: todoBotMock,
+    mediaType: 'embed',
+    mediaSrc: 'https://todo-bot-ut0r.onrender.com/',
+    demoUrl: 'https://todo-bot-ut0r.onrender.com/',
+    description: [
+      'Strategically engineered to bridge the gap between enterprise Java ecosystems and the modern MERN stack, mastering reactive state management and non-relational data modeling.',
+      'Accelerated frontend development and consistency by implementing a reusable, component-driven UI and modular styles.',
+      'Optimized end-to-end data persistence through a flexible MongoDB/Mongoose schema, ensuring robust tracking of tasks and users.',
+      'Designed a roadmap for AI-driven task prioritization using Retrieval-Augmented Generation (RAG) techniques.'
+    ]
+  },
+  {
+    id: 'sample-assist',
+    section: 'professional-experience',
+    date: 'September 2024 - June 2025',
+    title: 'AI Engineer Intern',
+    company: 'Sample Assist | Wollongong, NSW',
+    previewImage: 'https://img.youtube.com/vi/g3BSYlM0fOM/hqdefault.jpg',
+    mediaType: 'embed',
+    mediaSrc: 'https://www.youtube.com/embed/g3BSYlM0fOM?si=i9biTTluKwjGW6TV',
+    description: [
+      'Researched and fine-tuned the PaddleOCR model to automate Patient Identity Verification, reducing manual data entry time by 80% for 10,000+ records and enabling more patients to receive treatment each day.',
+      'Designed and generated synthetic datasets using GAN model to cover the lack of real data.',
+      'Developed APIs for seamless integration of AI models into the company’s applications.',
+      'Engaged with stakeholders to define project goals and align team direction.',
+      'Collaborated in a 5-member Agile (Sprint) team to work and deliver the final product.',
+      'Conducted comprehensive data analytics and assessed AI model effectiveness through accuracy, precision, recall, and F1-score.',
+      'Tech Stack: Python, FastAPI, OpenCV, Google ML Kit, GitHub, PostgreSQL.'
+    ]
+  },
+  {
     id: 'online-ordering-system',
     section: 'personal-project',
     date: 'Jan. 2025 - May 2025',
-    title: 'Full Stack Developer',
+    title: 'Full Stack Software Engineer',
     company: 'Online Ordering System - Self Employed | Hanoi, Vietnam',
     previewImage: 'https://img.youtube.com/vi/Wyt5HsjooLg/hqdefault.jpg',
     mediaType: 'embed',
@@ -71,7 +108,6 @@ function Timeline() {
       <div className="items-container">
         <section className="timeline-section">
           <h1 className="timeline-section-title">Professional Experience</h1>
-          <small className="timeline-hint">&lt;Click any entry to expand details&gt;</small>
           <VerticalTimeline>
             {professionalExperience.map((entry) => (
               <VerticalTimelineElement
@@ -101,7 +137,6 @@ function Timeline() {
 
         <section className="timeline-section">
           <h1 className="timeline-section-title">Personal Project</h1>
-          <small className="timeline-hint">&lt;Click any entry to expand details&gt;</small>
           <VerticalTimeline>
             {personalProjects.map((entry) => (
               <VerticalTimelineElement
