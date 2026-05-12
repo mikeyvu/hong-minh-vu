@@ -1,18 +1,20 @@
 {
   "files": {
     "main.css": "/hong-minh-vu/static/css/main.7489baeb.css",
-    "main.js": "/hong-minh-vu/static/js/main.c06fcc50.js",
+    "main.js": "/hong-minh-vu/static/js/main.d32e9ca6.js",
     "static/js/453.cba9e5b1.chunk.js": "/hong-minh-vu/static/js/453.cba9e5b1.chunk.js",
     "static/media/Mike Vu - avatar.jpg": "/hong-minh-vu/static/media/Mike Vu - avatar.a0d0ef44192605b7a74d.jpg",
     "static/media/todo-bot-mock.png": "/hong-minh-vu/static/media/todo-bot-mock.620eaf521b863ca80b69.png",
+    "static/media/grad-photo.jpg": "/hong-minh-vu/static/media/grad-photo.7eef98f3f7a1cfc99450.jpg",
     "static/media/portfolio-demo.jpg": "/hong-minh-vu/static/media/portfolio-demo.e15c6558b32ee6361e4c.jpg",
+    "static/media/gong-soccer-demo.jpg": "/hong-minh-vu/static/media/gong-soccer-demo.770fe2a98712a189fe26.jpg",
     "index.html": "/hong-minh-vu/index.html",
     "main.7489baeb.css.map": "/hong-minh-vu/static/css/main.7489baeb.css.map",
-    "main.c06fcc50.js.map": "/hong-minh-vu/static/js/main.c06fcc50.js.map",
+    "main.d32e9ca6.js.map": "/hong-minh-vu/static/js/main.d32e9ca6.js.map",
     "453.cba9e5b1.chunk.js.map": "/hong-minh-vu/static/js/453.cba9e5b1.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.7489baeb.css",
-    "static/js/main.c06fcc50.js"
+    "static/js/main.d32e9ca6.js"
   ]
 }
