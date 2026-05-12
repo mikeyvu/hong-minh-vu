@@ -51,7 +51,7 @@ export function Skills() {
   return (
     <div
       ref={ref}
-      className="min-h-screen flex flex-col justify-center px-8 py-16"
+      className="min-h-screen flex flex-col justify-center px-4 sm:px-8 py-16"
       style={{ background: "linear-gradient(180deg, #0a0a1a 0%, #111128 100%)" }}
     >
       <div className="max-w-5xl mx-auto w-full space-y-12">
@@ -60,7 +60,7 @@ export function Skills() {
           style={{ opacity: visible ? 1 : 0, transform: visible ? "none" : "translateY(-20px)", transition: "all 0.6s ease" }}
         >
           <p className="text-purple-400 font-mono text-sm tracking-widest uppercase">What I Work With</p>
-          <h2 className="text-5xl font-black text-white">
+          <h2 className="text-4xl sm:text-5xl font-black text-white">
             Skills &{" "}
             <span
               style={{
@@ -76,7 +76,7 @@ export function Skills() {
             A snapshot of the tools and technologies I use to build scalable applications.
           </p>
         </div>
-        <div className="flex justify-center gap-3" style={{ opacity: visible ? 1 : 0, transition: "all 0.6s ease 0.2s" }}>
+        <div className="flex flex-wrap justify-center gap-2" style={{ opacity: visible ? 1 : 0, transition: "all 0.6s ease 0.2s" }}>
           {categories.map((cat) => (
             <button
               key={cat}
@@ -131,7 +131,7 @@ export function Skills() {
         </div>
         <div className="space-y-4" style={{ opacity: visible ? 1 : 0, transition: "all 0.6s ease 0.8s" }}>
           <h3 className="text-slate-400 font-mono text-sm tracking-widest uppercase text-center">Full Tech Stack</h3>
-          <div className="grid grid-cols-6 gap-3">
+          <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-3">
             {techStack.map((tech, i) => (
               <div
                 key={tech.name}

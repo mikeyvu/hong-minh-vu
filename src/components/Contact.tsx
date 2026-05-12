@@ -92,7 +92,7 @@ export function Contact() {
   return (
     <div
       ref={ref}
-      className="min-h-screen flex flex-col justify-center px-8 py-16 relative overflow-hidden"
+      className="min-h-screen flex flex-col justify-center px-4 sm:px-8 py-16 relative overflow-hidden"
       style={{ background: "linear-gradient(180deg, #0d0d24 0%, #0a0a1a 100%)" }}
     >
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
@@ -111,7 +111,7 @@ export function Contact() {
           style={{ opacity: visible ? 1 : 0, transform: visible ? "none" : "translateY(-20px)", transition: "all 0.6s ease" }}
         >
           <p className="text-emerald-400 font-mono text-sm tracking-widest uppercase">Let&apos;s Connect</p>
-          <h2 className="text-5xl font-black text-white">
+          <h2 className="text-4xl sm:text-5xl font-black text-white">
             Get in{" "}
             <span
               style={{
@@ -127,7 +127,7 @@ export function Contact() {
             Open to full-time roles, freelance projects, and interesting collaborations. Let&apos;s build something great together.
           </p>
         </div>
-        <div className="grid grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div
             className="space-y-5"
             style={{ opacity: visible ? 1 : 0, transform: visible ? "none" : "translateX(-30px)", transition: "all 0.7s ease 0.15s" }}
@@ -158,7 +158,7 @@ export function Contact() {
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-4">
-                  <div className="grid grid-cols-2 gap-3">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     {[
                       { label: "Your Name", name: "name", type: "text", placeholder: "Mike Vu" },
                       { label: "Email Address", name: "email", type: "email", placeholder: "hello@example.com" },
@@ -320,7 +320,7 @@ export function Contact() {
           </div>
         </div>
         <div
-          className="pt-6 border-t flex items-center justify-between"
+          className="pt-6 border-t flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-0 justify-between"
           style={{ borderColor: "rgba(255,255,255,0.06)", opacity: visible ? 1 : 0, transition: "all 0.7s ease 0.7s" }}
         >
           <p className="text-slate-600 text-xs font-mono">© 2026 Mike Vu · Built with React & TypeScript</p>

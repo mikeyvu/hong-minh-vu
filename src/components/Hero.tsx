@@ -147,8 +147,8 @@ export function Hero() {
         </svg>
       </div>
 
-      <div className="relative z-10 max-w-6xl mx-auto px-8 py-16 w-full">
-        <div className="grid grid-cols-2 gap-16 items-center">
+      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-8 py-16 w-full">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center">
           <div
             className="space-y-6"
             style={{
@@ -165,7 +165,7 @@ export function Hero() {
             </div>
             <div>
               <p className="text-purple-300 font-mono text-lg mb-1">Hello, I&apos;m</p>
-              <h1 className="text-6xl font-black text-white leading-tight tracking-tight">
+              <h1 className="text-4xl sm:text-6xl font-black text-white leading-tight tracking-tight">
                 Mike<br />
                 <span
                   style={{

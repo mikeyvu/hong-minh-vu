@@ -133,9 +133,8 @@ function EntryRow({ item, index, visible }: { item: TimelineItem; index: number;
   const badge = kindBadge[item.kind];
   return (
     <div
-      className="grid gap-6 py-8"
+      className="grid grid-cols-1 md:grid-cols-2 gap-6 py-8"
       style={{
-        gridTemplateColumns: "1fr 1fr",
         borderBottom: "1px solid rgba(255,255,255,0.06)",
         opacity: visible ? 1 : 0,
         transform: visible ? "none" : "translateY(24px)",
@@ -228,14 +227,14 @@ export function Experience() {
     return () => obs.disconnect();
   }, []);
   return (
-    <div ref={ref} className="min-h-screen px-8 py-16" style={{ background: "linear-gradient(180deg,#0a0a1a 0%,#080818 100%)" }}>
+    <div ref={ref} className="min-h-screen px-4 sm:px-8 py-16" style={{ background: "linear-gradient(180deg,#0a0a1a 0%,#080818 100%)" }}>
       <div className="max-w-5xl mx-auto w-full space-y-10">
         <div
           className="text-center space-y-3"
           style={{ opacity: visible ? 1 : 0, transform: visible ? "none" : "translateY(-20px)", transition: "all 0.6s ease" }}
         >
           <p className="text-violet-400 font-mono text-sm tracking-widest uppercase">My Journey</p>
-          <h2 className="text-5xl font-black text-white">
+          <h2 className="text-4xl sm:text-5xl font-black text-white">
             Experience &{" "}
             <span
               style={{

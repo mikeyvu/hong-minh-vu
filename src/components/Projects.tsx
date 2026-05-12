@@ -169,7 +169,7 @@ export function Projects() {
   return (
     <div
       ref={ref}
-      className="min-h-screen px-8 py-16"
+      className="min-h-screen px-4 sm:px-8 py-16"
       style={{ background: "linear-gradient(180deg, #080818 0%, #0d0d24 100%)" }}
     >
       <div className="max-w-5xl mx-auto w-full space-y-10">
@@ -178,7 +178,7 @@ export function Projects() {
           style={{ opacity: visible ? 1 : 0, transform: visible ? "none" : "translateY(-20px)", transition: "all 0.6s ease" }}
         >
           <p className="text-cyan-400 font-mono text-sm tracking-widest uppercase">Things I&apos;ve Built</p>
-          <h2 className="text-5xl font-black text-white">
+          <h2 className="text-4xl sm:text-5xl font-black text-white">
             My{" "}
             <span
               style={{
@@ -194,7 +194,7 @@ export function Projects() {
             Real-world applications I&apos;ve designed, built, and shipped — from idea to production.
           </p>
         </div>
-        <div className="grid grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
           {projects.map((project, i) => (
             <div
               key={project.title}
