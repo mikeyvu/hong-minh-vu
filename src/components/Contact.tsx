@@ -313,7 +313,7 @@ export function Contact() {
             <div className="rounded-2xl p-4 flex items-center gap-3 mt-2" style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)" }}>
               <span className="text-2xl">📍</span>
               <div>
-                <p className="text-slate-300 font-semibold text-sm">Wollongong, NSW</p>
+                <p className="text-slate-300 font-semibold text-sm">Sydney, NSW</p>
                 <p className="text-slate-500 text-xs font-mono">GMT+10 · Open to remote & relocation</p>
               </div>
             </div>

@@ -1,28 +1,40 @@
 import { useEffect, useRef, useState } from "react";
 
 const skills = [
-  { name: "React", level: 88, color: "#61dafb", category: "Frontend" },
-  { name: "TypeScript", level: 85, color: "#3178c6", category: "Frontend" },
-  { name: "JavaScript", level: 82, color: "#f7df1e", category: "Frontend" },
+  { name: "Claude Code", level: 84, color: "#d97706", category: "AI" },
+  { name: "GitHub Copilot", level: 86, color: "#8b5cf6", category: "AI" },
+  { name: "Computer Vision", level: 78, color: "#14b8a6", category: "AI" },
+  { name: "LLM", level: 80, color: "#06b6d4", category: "AI" },
+  { name: "GAN", level: 72, color: "#ec4899", category: "AI" },
+  { name: "RAG", level: 81, color: "#10b981", category: "AI" },
   { name: "Java", level: 80, color: "#f97316", category: "Backend" },
   { name: "Spring Boot", level: 78, color: "#22c55e", category: "Backend" },
   { name: "FastAPI", level: 76, color: "#38bdf8", category: "Backend" },
   { name: "PostgreSQL", level: 74, color: "#336791", category: "Backend" },
   { name: "MySQL", level: 72, color: "#fbbf24", category: "Backend" },
+  { name: "React", level: 88, color: "#61dafb", category: "Frontend" },
+  { name: "TypeScript", level: 85, color: "#3178c6", category: "Frontend" },
+  { name: "JavaScript", level: 82, color: "#f7df1e", category: "Frontend" },
+  { name: "Tailwind CSS", level: 86, color: "#38bdf8", category: "Frontend" },
   { name: "Docker", level: 70, color: "#2496ed", category: "DevOps" },
   { name: "Git", level: 75, color: "#f05626", category: "DevOps" },
-  { name: "Tailwind CSS", level: 86, color: "#38bdf8", category: "Frontend" },
   { name: "Flutter", level: 60, color: "#60a5fa", category: "Mobile" },
 ];
 
 const techStack = [
-  { name: "React", icon: "⚛️", color: "#61dafb22" },
-  { name: "TypeScript", icon: "🔷", color: "#3178c622" },
+  { name: "Claude Code", icon: "🤖", color: "#d9770622" },
+  { name: "GitHub Copilot", icon: "✍️", color: "#8b5cf622" },
+  { name: "Computer Vision", icon: "👁️", color: "#14b8a622" },
+  { name: "LLM", icon: "🧠", color: "#06b6d422" },
+  { name: "GAN", icon: "🌀", color: "#ec489922" },
+  { name: "RAG", icon: "🔎", color: "#10b98122" },
   { name: "Java", icon: "☕", color: "#f9731622" },
   { name: "Spring Boot", icon: "🌱", color: "#22c55e22" },
   { name: "FastAPI", icon: "⚡", color: "#38bdf822" },
   { name: "PostgreSQL", icon: "🐘", color: "#33679122" },
   { name: "MySQL", icon: "🐬", color: "#fbbf2422" },
+  { name: "React", icon: "⚛️", color: "#61dafb22" },
+  { name: "TypeScript", icon: "🔷", color: "#3178c622" },
   { name: "Docker", icon: "🐳", color: "#2496ed22" },
   { name: "Git", icon: "🔱", color: "#f0562622" },
   { name: "Tailwind", icon: "🎨", color: "#38bdf822" },
@@ -30,7 +42,7 @@ const techStack = [
   { name: "Flutter", icon: "📱", color: "#60a5fa22" },
 ];
 
-const categories = ["All", "Frontend", "Backend", "DevOps", "Mobile"];
+const categories = ["All", "AI", "Backend", "Frontend", "DevOps", "Mobile"];
 
 export function Skills() {
   const ref = useRef<HTMLDivElement>(null);

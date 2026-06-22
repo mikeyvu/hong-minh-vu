@@ -15,9 +15,30 @@ type TimelineItem = {
   accent: string;
   demoUrl?: string;
   previewImage?: string;
+  demoLink?: string;
 };
 
 const timeline: TimelineItem[] = [
+  {
+    kind: "work",
+    icon: "💼",
+    title: "Full Stack Software Engineer Intern",
+    org: "Annalink OSHC-Students | Sydney, NSW",
+    period: "May 2026 — Present",
+    current: true,
+    description:
+      "Developed and enhanced full-stack web applications in a collaborative environment, with emphasis on strengthening backend security, improving database performance, and building efficient administrative interfaces using NestJS while further developing frontend experience with Next.js.",
+    points: [
+      "Developed RBAC systems in NestJS, dynamically isolating resources and securing backend endpoints.",
+      "Optimized full-stack systems by designing scalable PostgreSQL schemas and robust pipelines to efficiently process datasets of million+ records.",
+      "Built responsive Next.js/TypeScript dashboards, improving administrative efficiency through advanced filtering and optimized UI components.",
+    ],
+    tags: ["NestJS", "Next.js", "TypeScript", "PostgreSQL", "RBAC"],
+    color: "#7c3aed",
+    accent: "#a78bfa",
+    previewImage: `${process.env.PUBLIC_URL}/Annalink-website.png`,
+    demoLink: "https://oshcstudents.com.au/client",
+  },
   {
     kind: "work",
     icon: "🤖",
@@ -62,7 +83,7 @@ const kindBadge: Record<string, { label: string; bg: string; text: string }> = {
   education: { label: "Education", bg: "#05966922", text: "#34d399" },
 };
 
-function VideoSlot({ color, accent, demoUrl, previewImage }: { color: string; accent: string; demoUrl?: string; previewImage?: string }) {
+function VideoSlot({ color, accent, demoUrl, previewImage, demoLink }: { color: string; accent: string; demoUrl?: string; previewImage?: string; demoLink?: string }) {
   const [hovered, setHovered] = useState(false);
   if (demoUrl) {
     return (
@@ -79,9 +100,19 @@ function VideoSlot({ color, accent, demoUrl, previewImage }: { color: string; ac
   }
   if (previewImage) {
     return (
-      <div className="relative w-full rounded-xl overflow-hidden" style={{ aspectRatio: "16/9" }}>
+      <a
+        href={demoLink || previewImage}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="relative block w-full rounded-xl overflow-hidden cursor-pointer transition-transform duration-300 hover:scale-[1.01]"
+        style={{ aspectRatio: "16/9" }}
+      >
         <img src={previewImage} alt="Demo preview" className="w-full h-full object-cover" />
-      </div>
+        <div
+          className="absolute inset-0"
+          style={{ background: "linear-gradient(to top, rgba(0,0,0,0.22), transparent 45%)" }}
+        />
+      </a>
     );
   }
   return (
@@ -184,7 +215,7 @@ function EntryRow({ item, index, visible }: { item: TimelineItem; index: number;
             </p>
           </div>
         </div>
-        <VideoSlot color={item.color} accent={item.accent} demoUrl={item.demoUrl} previewImage={item.previewImage} />
+        <VideoSlot color={item.color} accent={item.accent} demoUrl={item.demoUrl} previewImage={item.previewImage} demoLink={item.demoLink} />
         <div className="flex flex-wrap gap-1.5">
           {item.tags.map((tag) => (
             <span
