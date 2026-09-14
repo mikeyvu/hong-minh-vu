@@ -1,8 +1,9 @@
-import { useEffect, useRef, useState } from "react";
 import gradPhoto from "../assets/images/grad-photo.jpg";
+import { useInView } from "../hooks/useInView";
+import { MediaFrame } from "./MediaFrame";
 
 type TimelineItem = {
-  kind: "work" | "education";
+  kind: "work" | "education" | "competition";
   icon: string;
   title: string;
   org: string;
@@ -14,7 +15,8 @@ type TimelineItem = {
   color: string;
   accent: string;
   demoUrl?: string;
-  previewImage?: string;
+  images?: string[];
+  imagePositions?: string[];
   demoLink?: string;
 };
 
@@ -34,9 +36,9 @@ const timeline: TimelineItem[] = [
       "Built responsive Next.js/TypeScript dashboards, improving administrative efficiency through advanced filtering and optimized UI components.",
     ],
     tags: ["NestJS", "Next.js", "TypeScript", "PostgreSQL", "RBAC"],
-    color: "#7c3aed",
-    accent: "#a78bfa",
-    previewImage: `${process.env.PUBLIC_URL}/Annalink-website.png`,
+    color: "#AD5A36",
+    accent: "#AD5A36",
+    images: [`${process.env.PUBLIC_URL}/Annalink-website.png`],
     demoLink: "https://oshcstudents.com.au/client",
   },
   {
@@ -53,8 +55,8 @@ const timeline: TimelineItem[] = [
       "Collaborated in Agile sprints with stakeholders",
     ],
     tags: ["Python", "FastAPI", "OpenCV", "PostgreSQL", "OCR"],
-    color: "#7c3aed",
-    accent: "#a78bfa",
+    color: "#AD5A36",
+    accent: "#AD5A36",
     demoUrl: "https://www.youtube.com/embed/g3BSYlM0fOM?si=i9biTTluKwjGW6TV",
   },
   {
@@ -72,112 +74,47 @@ const timeline: TimelineItem[] = [
       "Collaborative team projects",
     ],
     tags: ["Algorithms", "Databases", "Software Engineering", "AI", "Big Data"],
-    color: "#059669",
-    accent: "#34d399",
-    previewImage: gradPhoto,
+    color: "#4B6355",
+    accent: "#4B6355",
+    images: [gradPhoto],
+  },
+  {
+    kind: "competition",
+    icon: "🏆",
+    title: "Hack The Gong 2026",
+    org: "iAccelerate x Wollongong City Council | Wollongong, NSW",
+    period: "Aug 22 — 23, 2026",
+    description:
+      "My first hackathon — and we walked away with a prize. Our team of five spent 48 hours at Hack The Gong 2026 tackling the Illawarra's Energy Equity challenge: rooftop solar is booming, but renters and low-income households are locked out, while solar owners sell surplus power back for a fraction of what they pay to buy it back at peak. We built Comrade Electricity, a community battery marketplace where solar households bank surplus power as Energy Credits to save or sell at fairer rates, and Priority Households get automated first rights to buy that cheap, clean power before it hits the open market.",
+    points: [
+      "Designed a community battery marketplace that lets solar households export surplus power for Energy Credits instead of selling at ~5c/kWh",
+      "Built automated priority access so renters, apartment dwellers, and energy-hardship households get first rights to cheap solar power",
+      "Won 'Best Meme of the Gong' among competing teams",
+    ],
+    tags: ["Hackathon", "Energy Equity", "Community Battery", "iAccelerate"],
+    color: "#4B6355",
+    accent: "#4B6355",
+    images: [
+      `${process.env.PUBLIC_URL}/hack-the-gong-2026/1787623449715.jpg`,
+      `${process.env.PUBLIC_URL}/hack-the-gong-2026/1787623451485.jpg`,
+    ],
+    imagePositions: ["center", "center 20%"],
   },
 ];
 
 const kindBadge: Record<string, { label: string; bg: string; text: string }> = {
-  work: { label: "Work", bg: "#7c3aed22", text: "#a78bfa" },
-  education: { label: "Education", bg: "#05966922", text: "#34d399" },
+  work: { label: "Work", bg: "#F3E7DE", text: "#7A3D22" },
+  education: { label: "Education", bg: "#E9EFE9", text: "#33453A" },
+  competition: { label: "Competition", bg: "#FFFFFF", text: "#1C1A17" },
 };
-
-function VideoSlot({ color, accent, demoUrl, previewImage, demoLink }: { color: string; accent: string; demoUrl?: string; previewImage?: string; demoLink?: string }) {
-  const [hovered, setHovered] = useState(false);
-  if (demoUrl) {
-    return (
-      <div className="relative w-full rounded-xl overflow-hidden" style={{ aspectRatio: "16/9" }}>
-        <iframe
-          src={demoUrl}
-          className="w-full h-full"
-          title="Demo video"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-        />
-      </div>
-    );
-  }
-  if (previewImage) {
-    return (
-      <a
-        href={demoLink || previewImage}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="relative block w-full rounded-xl overflow-hidden cursor-pointer transition-transform duration-300 hover:scale-[1.01]"
-        style={{ aspectRatio: "16/9" }}
-      >
-        <img src={previewImage} alt="Demo preview" className="w-full h-full object-cover" />
-        <div
-          className="absolute inset-0"
-          style={{ background: "linear-gradient(to top, rgba(0,0,0,0.22), transparent 45%)" }}
-        />
-      </a>
-    );
-  }
-  return (
-    <div
-      className="relative w-full rounded-xl overflow-hidden cursor-pointer transition-all duration-300"
-      style={{
-        aspectRatio: "16/9",
-        background: `${color}14`,
-        border: `1px dashed ${color}55`,
-      }}
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-    >
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          backgroundImage:
-            "repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,0.04) 2px,rgba(0,0,0,0.04) 4px)",
-        }}
-      />
-      <div
-        className="absolute bottom-0 left-0 right-0 px-3 pb-2 pt-5"
-        style={{ background: "linear-gradient(to top,rgba(0,0,0,0.65),transparent)" }}
-      >
-        <div className="h-1 rounded-full overflow-hidden" style={{ background: "rgba(255,255,255,0.12)" }}>
-          <div className="h-full w-1/3 rounded-full" style={{ background: accent }} />
-        </div>
-        <div className="flex justify-between mt-1">
-          <span className="text-xs font-mono" style={{ color: "rgba(255,255,255,0.3)" }}>
-            0:00
-          </span>
-          <span className="text-xs font-mono" style={{ color: "rgba(255,255,255,0.3)" }}>
-            2:34
-          </span>
-        </div>
-      </div>
-      <div className="absolute inset-0 flex flex-col items-center justify-center gap-2">
-        <div
-          className="w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300"
-          style={{
-            background: hovered ? accent : `${color}44`,
-            color: hovered ? "#fff" : accent,
-            transform: hovered ? "scale(1.12)" : "scale(1)",
-            boxShadow: hovered ? `0 0 22px ${color}88` : "none",
-          }}
-        >
-          <svg viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6 ml-0.5">
-            <path d="M8 5v14l11-7z" />
-          </svg>
-        </div>
-        <span className="text-xs font-mono" style={{ color: "rgba(255,255,255,0.28)" }}>
-          {hovered ? "Add demo video" : "Demo video"}
-        </span>
-      </div>
-    </div>
-  );
-}
 
 function EntryRow({ item, index, visible }: { item: TimelineItem; index: number; visible: boolean }) {
   const badge = kindBadge[item.kind];
+  const isCompetition = item.kind === "competition";
   return (
     <div
-      className="grid grid-cols-1 md:grid-cols-2 gap-6 py-8"
+      className="grid grid-cols-1 md:grid-cols-2 gap-6 p-6 sm:p-8 rounded-xl bg-surface border border-border"
       style={{
-        borderBottom: "1px solid rgba(255,255,255,0.06)",
         opacity: visible ? 1 : 0,
         transform: visible ? "none" : "translateY(24px)",
         transition: `opacity 0.65s ease ${0.15 + index * 0.12}s, transform 0.65s ease ${0.15 + index * 0.12}s`,
@@ -185,44 +122,44 @@ function EntryRow({ item, index, visible }: { item: TimelineItem; index: number;
     >
       <div className="space-y-4">
         <div className="flex items-start gap-4">
-          <div
-            className="w-12 h-12 rounded-2xl flex items-center justify-center text-xl flex-shrink-0"
-            style={{
-              background: `linear-gradient(135deg,${item.color},${item.accent})`,
-              boxShadow: `0 4px 16px ${item.color}44`,
-            }}
-          >
+          <div className="w-12 h-12 rounded-2xl flex items-center justify-center text-xl flex-shrink-0 bg-canvas-alt border border-border">
             {item.icon}
           </div>
           <div>
             <div className="flex items-center gap-2 mb-0.5 flex-wrap">
-              <span className="text-xs font-mono px-2 py-0.5 rounded-full" style={{ background: badge.bg, color: badge.text }}>
+              <span
+                className="text-xs font-mono px-2 py-0.5 rounded-full"
+                style={{
+                  background: badge.bg,
+                  color: badge.text,
+                  border: isCompetition ? "1px solid #1C1A17" : "none",
+                }}
+              >
                 {badge.label}
               </span>
               {item.current && (
-                <span
-                  className="text-xs font-mono px-2 py-0.5 rounded-full flex items-center gap-1"
-                  style={{ background: "#22c55e18", color: "#22c55e" }}
-                >
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 inline-block animate-pulse" />
+                <span className="text-xs font-mono px-2 py-0.5 rounded-full flex items-center gap-1 bg-moss-pale text-moss-ink">
+                  <span className="w-1.5 h-1.5 rounded-full bg-moss inline-block animate-pulse" />
                   Current
                 </span>
               )}
             </div>
-            <h3 className="text-white font-bold text-lg leading-tight">{item.title}</h3>
+            <h3 className="text-ink font-bold text-lg leading-tight">{item.title}</h3>
             <p className="font-semibold text-sm mt-0.5" style={{ color: item.accent }}>
               {item.org}
             </p>
           </div>
         </div>
-        <VideoSlot color={item.color} accent={item.accent} demoUrl={item.demoUrl} previewImage={item.previewImage} demoLink={item.demoLink} />
+        <MediaFrame
+          accent={item.accent}
+          video={item.demoUrl}
+          images={item.images}
+          imagePositions={item.imagePositions}
+          demoLink={item.demoLink}
+        />
         <div className="flex flex-wrap gap-1.5">
           {item.tags.map((tag) => (
-            <span
-              key={tag}
-              className="text-xs px-2.5 py-1 rounded-lg font-mono"
-              style={{ background: "rgba(255,255,255,0.06)", color: "#64748b" }}
-            >
+            <span key={tag} className="text-xs px-2.5 py-1 rounded-lg font-mono bg-canvas-alt text-ink-muted">
               {tag}
             </span>
           ))}
@@ -230,8 +167,8 @@ function EntryRow({ item, index, visible }: { item: TimelineItem; index: number;
       </div>
       <div className="space-y-4 pt-1">
         <div
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-mono"
-          style={{ background: `${item.color}14`, border: `1px solid ${item.color}33`, color: item.accent }}
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-mono bg-canvas-alt border border-border"
+          style={{ color: item.accent }}
         >
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} className="w-4 h-4 flex-shrink-0">
             <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
@@ -241,10 +178,10 @@ function EntryRow({ item, index, visible }: { item: TimelineItem; index: number;
           </svg>
           {item.period}
         </div>
-        <p className="text-slate-400 text-sm leading-relaxed">{item.description}</p>
+        <p className="text-ink-muted text-sm leading-relaxed">{item.description}</p>
         <ul className="space-y-2">
           {item.points.map((pt, i) => (
-            <li key={i} className="flex items-start gap-2.5 text-sm text-slate-300">
+            <li key={i} className="flex items-start gap-2.5 text-sm text-ink-muted">
               <span className="mt-1 w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ background: item.accent }} />
               {pt}
             </li>
@@ -255,74 +192,83 @@ function EntryRow({ item, index, visible }: { item: TimelineItem; index: number;
   );
 }
 
-export function Experience() {
-  const ref = useRef<HTMLDivElement>(null);
-  const [visible, setVisible] = useState(false);
-  useEffect(() => {
-    const obs = new IntersectionObserver(
-      ([e]) => {
-        if (e.isIntersecting) setVisible(true);
-      },
-      { threshold: 0.04 }
-    );
-    if (ref.current) obs.observe(ref.current);
-    return () => obs.disconnect();
-  }, []);
+const workItems = timeline.filter((item) => item.kind === "work");
+const eduItems = timeline.filter((item) => item.kind === "education" || item.kind === "competition");
+
+function TimelineSection({
+  items,
+  eyebrow,
+  titlePlain,
+  titleGradient,
+  subtitle,
+  showCta,
+}: {
+  items: TimelineItem[];
+  eyebrow: string;
+  titlePlain: string;
+  titleGradient: string;
+  subtitle: string;
+  showCta: boolean;
+}) {
+  const { ref, visible } = useInView<HTMLDivElement>(0.04);
   return (
-    <div ref={ref} className="min-h-screen px-4 sm:px-8 py-16" style={{ background: "linear-gradient(180deg,#0a0a1a 0%,#080818 100%)" }}>
+    <div ref={ref} className="px-4 sm:px-8 py-16">
       <div className="max-w-5xl mx-auto w-full space-y-10">
         <div
           className="text-center space-y-3"
           style={{ opacity: visible ? 1 : 0, transform: visible ? "none" : "translateY(-20px)", transition: "all 0.6s ease" }}
         >
-          <p className="text-violet-400 font-mono text-sm tracking-widest uppercase">My Journey</p>
-          <h2 className="text-4xl sm:text-5xl font-black text-white">
-            Experience &{" "}
-            <span
-              style={{
-                background: "linear-gradient(90deg,#a78bfa,#06b6d4)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-              }}
-            >
-              Education
-            </span>
+          <p className="text-accent font-mono text-sm tracking-widest uppercase">{eyebrow}</p>
+          <h2 className="text-4xl sm:text-5xl font-serif font-semibold text-ink">
+            {titlePlain} <span className="italic text-accent">{titleGradient}</span>
           </h2>
-          <p className="text-slate-500 max-w-lg mx-auto">
-            From internships to real-world systems, here are the roles and milestones that shaped my journey.
-          </p>
+          <p className="text-ink-muted max-w-lg mx-auto">{subtitle}</p>
         </div>
-        <div className="flex justify-center gap-6" style={{ opacity: visible ? 1 : 0, transition: "all 0.6s ease 0.1s" }}>
-          {[
-            { label: "Work Experience", color: "#7c3aed", icon: "💼" },
-            { label: "Education", color: "#059669", icon: "🎓" },
-          ].map((l) => (
-            <div key={l.label} className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full" style={{ background: l.color, boxShadow: `0 0 6px ${l.color}` }} />
-              <span className="text-slate-400 text-sm font-mono">
-                {l.icon} {l.label}
-              </span>
-            </div>
-          ))}
-        </div>
-        <div style={{ borderTop: "1px solid rgba(255,255,255,0.06)" }}>
-          {timeline.map((item, i) => (
+        <div className="space-y-6">
+          {items.map((item, i) => (
             <EntryRow key={`${item.title}-${i}`} item={item} index={i} visible={visible} />
           ))}
         </div>
-        <div className="text-center pt-2" style={{ opacity: visible ? 1 : 0, transition: "all 0.6s ease 0.9s" }}>
-          <div className="inline-flex items-center gap-3 px-6 py-3 rounded-2xl" style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)" }}>
-            <span className="text-slate-500 text-sm">Want the full picture?</span>
-            <a
-              href={`${process.env.PUBLIC_URL}/cv/${encodeURIComponent("Minh Vu(Mike) - CV.pdf")}`}
-              className="text-sm font-semibold px-4 py-1.5 rounded-xl transition-all duration-200 hover:scale-105 text-white no-underline"
-              style={{ background: "linear-gradient(135deg,#7c3aed,#06b6d4)" }}
-            >
-              Download CV
-            </a>
+        {showCta && (
+          <div className="text-center pt-2" style={{ opacity: visible ? 1 : 0, transition: "all 0.6s ease 0.9s" }}>
+            <div className="inline-flex items-center gap-3 px-6 py-3 rounded-2xl bg-surface border border-border">
+              <span className="text-ink-muted text-sm">Want the full picture?</span>
+              <a
+                href={`${process.env.PUBLIC_URL}/cv/${encodeURIComponent("Minh Vu(Mike) - CV.pdf")}`}
+                className="text-sm font-semibold px-4 py-1.5 rounded-xl transition-colors duration-200 bg-ink hover:bg-ink/85 text-white no-underline"
+              >
+                Download CV
+              </a>
+            </div>
           </div>
-        </div>
+        )}
       </div>
     </div>
+  );
+}
+
+export function Experience() {
+  return (
+    <TimelineSection
+      items={workItems}
+      eyebrow="My Journey"
+      titlePlain="Professional"
+      titleGradient="Experiences"
+      subtitle="From internships to real-world systems, here are the roles that shaped my journey."
+      showCta={false}
+    />
+  );
+}
+
+export function Education() {
+  return (
+    <TimelineSection
+      items={eduItems}
+      eyebrow="Academic Background"
+      titlePlain="Education and"
+      titleGradient="Competition"
+      subtitle="The degrees and competitions that built my foundation."
+      showCta={true}
+    />
   );
 }

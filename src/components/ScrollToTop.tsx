@@ -33,28 +33,20 @@ export function ScrollToTop() {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        background: hovered
-          ? "linear-gradient(135deg, #7c3aed, #06b6d4)"
-          : "rgba(124,58,237,0.15)",
+        background: hovered ? "#1C1A17" : "#FFFFFF",
         boxShadow: hovered
-          ? "0 0 0 1px rgba(124,58,237,0.6), 0 8px 32px rgba(124,58,237,0.4)"
-          : "0 0 0 1px rgba(124,58,237,0.3), 0 4px 16px rgba(0,0,0,0.3)",
-        backdropFilter: "blur(12px)",
+          ? "0 0 0 1px #1C1A17, 0 4px 12px rgba(28,26,23,0.15)"
+          : "0 0 0 1px #E7E3DA, 0 2px 8px rgba(28,26,23,0.06)",
         opacity: visible ? 1 : 0,
-        transform: visible
-          ? hovered
-            ? "translateY(-4px) scale(1.08)"
-            : "translateY(0) scale(1)"
-          : "translateY(16px) scale(0.85)",
-        transition:
-          "opacity 0.35s ease, transform 0.35s cubic-bezier(0.34,1.56,0.64,1), background 0.2s ease, box-shadow 0.2s ease",
+        transform: visible ? (hovered ? "translateY(-2px)" : "translateY(0)") : "translateY(16px)",
+        transition: "opacity 0.35s ease, transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease",
         pointerEvents: visible ? "auto" : "none",
       }}
     >
       <svg
         viewBox="0 0 24 24"
         fill="none"
-        stroke={hovered ? "#ffffff" : "#a78bfa"}
+        stroke={hovered ? "#ffffff" : "#1C1A17"}
         strokeWidth={2.5}
         strokeLinecap="round"
         strokeLinejoin="round"
