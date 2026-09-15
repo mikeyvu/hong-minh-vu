@@ -64,7 +64,7 @@ const timeline: TimelineItem[] = [
     icon: "🎓",
     title: "Bachelor of Computer Science",
     org: "University of Wollongong",
-    period: "2019 — 2022",
+    period: "2022 — 2025",
     description:
       "Focused on software engineering, data structures, and database systems with project-based coursework.",
     points: [
