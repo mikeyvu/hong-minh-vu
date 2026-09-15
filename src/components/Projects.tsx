@@ -6,6 +6,17 @@ import { MediaFrame } from "./MediaFrame";
 
 const projects = [
   {
+    title: "Cipher Solution Workforce Management",
+    description:
+      "A workforce compliance platform that tracks visas, police checks, and working-with-children checks for every contractor and employee in one place.",
+    tech: ["React", "TypeScript", "NestJS", "Prisma", "Tailwind CSS", "shadcn/ui"],
+    accent: "#AD5A36",
+    status: "Live",
+    demoVideo: "https://www.loom.com/embed/28148bd37a294cdf86a8b1dae13160a6?autoplay=false",
+    githubUrl: null,
+    liveUrl: null,
+  },
+  {
     title: "Todo Bot — Full-Stack MERN",
     description:
       "A full-stack task management app with reusable UI components and MongoDB persistence.",
@@ -104,7 +115,7 @@ export function Projects() {
                     </span>
                   </div>
                 </div>
-                <p className="text-ink-muted text-sm leading-relaxed line-clamp-2">{project.description}</p>
+                <p className="text-ink-muted text-sm leading-relaxed line-clamp-3">{project.description}</p>
                 {!project.demoVideo && !project.liveUrl && (
                   <p className="text-xs font-mono text-ink-faint">Demo coming soon</p>
                 )}

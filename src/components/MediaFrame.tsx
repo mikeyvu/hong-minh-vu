@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 function isEmbeddable(url: string) {
-  return url.includes("youtube.com") || url.includes("youtu.be");
+  return url.includes("youtube.com") || url.includes("youtu.be") || url.includes("loom.com");
 }
 
 export function MediaFrame({
@@ -28,7 +28,7 @@ export function MediaFrame({
             src={video}
             className="w-full h-full"
             title="Demo video"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
           />
         ) : (
